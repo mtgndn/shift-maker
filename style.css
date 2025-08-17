@@ -6,27 +6,87 @@ body {
 
 h1 {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 60px;
 }
 
 .table-container {
   display: flex;
   justify-content: center;
+  overflow-x: auto; 
 }
 
 table {
   border-collapse: collapse;
   background-color: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 100%;
+  table-layout: fixed;
 }
 
 th, td {
   border: 1px solid #ccc;
   padding: 10px;
   text-align: center;
+  min-width: 100px;
 }
 
 input {
-  width: 100px;
-  padding: 5px;
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+th:first-child,
+td:first-child {
+  position: sticky;
+  left: 0;
+  background: #fff; 
+  z-index: 2;
+  min-width: 120px; 
+  text-align: left; 
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none; 
+  }
+
+  tbody tr {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    background: #fff;
+  }
+
+  tbody td {
+    display: inline-block;
+    width: 48%;
+    margin-bottom: 8px;
+    vertical-align: top;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  tbody td:first-child {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1rem;
+    background: none;
+    border-bottom: 2px solid #ccc;
+    margin-bottom: 10px;
+    position: static;
+  }
+
+ 
+  input {
+    width: 100%;
+    padding: 6px;
+  }
 }
